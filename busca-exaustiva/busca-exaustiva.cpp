@@ -54,16 +54,17 @@ float travelThroughCities(std::vector<City> cities) {
   // Calcula a distancia total e devolve esse valor
   City origCity, destCity;
   float dist, travelledDistance;
+  travelledDistance = 0;
 
   for (int idx=0; idx < cities.size(); idx++) {
-    if (idx == cities.size()) {
+    origCity = cities[idx];
+
+    if (idx == cities.size() - 1) {
       // Get distance to get back to the first city
-      origCity = cities.back();
-      destCity = cities.front();
+      destCity = cities[0];
     }
 
     else {
-      origCity = cities[idx];
       destCity = cities[idx + 1];
     }
 
@@ -72,6 +73,7 @@ float travelThroughCities(std::vector<City> cities) {
   }
   return travelledDistance;
 }
+
 
 void findBestRoute(std::vector<City> &citiesShortestDistance, std::vector<City> cities, int left, int right, double &shortestDistance, long int &nleaf) {
   if (left == right) {
