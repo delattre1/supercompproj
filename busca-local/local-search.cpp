@@ -50,8 +50,8 @@ float travelThroughCities(std::vector<City> cities) {
   for (int idx=0; idx < cities.size(); idx++) {
     if (idx == cities.size()) {
       // Get distance to get back to the first city
-      origCity = cities.front();
-      destCity = cities.back();
+      origCity = cities.back();
+      destCity = cities.front();
     }
 
     else {
